@@ -34,9 +34,10 @@ exports.updateFoodItem = async (req, res) => {
 
 
 exports.deleteFoodItem = async (req, res) => {
+  console.log('deleteFoodItem');
   try {
     // const deletedFoodItem = await FoodItem.findByIdAndRemove(req.params.id);
-    const deletedFoodItem = await FoodItem.findOneAndRemove({ _id: req.params.id });
+    const deletedFoodItem = await FoodItem.deleteOne( {"_id": req.params.id});
 
     if (!deletedFoodItem) {
       return res.status(404).json({ message: 'Food item not found' });
