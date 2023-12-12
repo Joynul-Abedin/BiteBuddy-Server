@@ -26,21 +26,21 @@ const signup = async (req, res, next) => {
             from: '"Home Automation System" <no-reply@has.com>',
             to: user.email,
             subject: 'Email Verification',
-            text: `Please verify your email by clicking on the following link: http://192.168.0.199:3000/api/v1/verify-email?token=${token}`,
+            text: `Please verify your email by clicking on the following link: https://bitebuddy-nydw.onrender.com/api/v1/verify-email?token=${token}`,
             html: `
                 <div style="font-family: Arial, sans-serif; padding: 20px; max-width: 500px; margin: auto; border: 1px solid #ccc;">
                     <h2 style="color: #333; text-align: center;">Welcome to Your Company Name!</h2>
                     <p style="font-size: 16px; line-height: 1.6;">
                         Thank you for signing up with us. Please verify your email address to complete your registration.
                     </p>
-                    <a href="http://192.168.0.199:3000/api/v1/verify-email?token=${token}" 
+                    <a href="https://bitebuddy-nydw.onrender.com/api/v1/verify-email?token=${token}" 
                         style="display: block; background-color: #4CAF50; color: #fff; text-align: center; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin: 20px 0;">
                         Verify Email
                     </a>
                     <p style="font-size: 14px; color: #555;">
                         If the button above doesn't work, please copy and paste the following link into your browser:
                         <br>
-                        <a href="http://192.168.0.199:3000/api/v1/verify-email?token=${token}" style="color: #3498db;">http://192.168.0.199:3000/api/v1/verify-email?token=${token}</a>
+                        <a href="https://bitebuddy-nydw.onrender.com/api/v1/verify-email?token=${token}" style="color: #3498db;">https://bitebuddy-nydw.onrender.com/api/v1/verify-email?token=${token}</a>
                     </p>
                     <p style="font-size: 14px; color: #555; text-align: center;">
                         Best Regards, <br>
