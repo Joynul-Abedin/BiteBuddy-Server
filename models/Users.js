@@ -28,17 +28,6 @@ const userSchema = new mongoose.Schema({
         type: Boolean,
         default: false
     },
-    address: {
-        type: String,
-        required: true
-    },
-    phoneNumber: {
-        type: String,
-        required: true
-    },
-    favoriteFoods: {
-        type: [String]
-    }
 },
 {
     timestamps: true
