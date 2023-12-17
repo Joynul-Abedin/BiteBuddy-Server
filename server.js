@@ -6,9 +6,10 @@ const authRouter = require('./index');
 const app = express();
 connectDB();
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: true }));
 
+app.use(express.json());
 app.use('/api', authRouter);
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
