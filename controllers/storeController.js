@@ -54,10 +54,25 @@ const deleteStore = async (req, res) => {
     }
 };
 
+const getStoresByOwnerId = async (req, res) => {
+    try {
+        const ownerId = req.params.ownerId;
+        const stores = await storeService.getStoresByOwnerId(ownerId);
+        if (!stores || stores.length === 0) {
+            return res.status(404).json({ message: 'No stores found for this owner' });
+        }
+        res.json(stores);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
+
+
 module.exports = {
     createStore,
     getStoreById,
     getAllStores,
     updateStore,
-    deleteStore
+    deleteStore,
+    getStoresByOwnerId
 };

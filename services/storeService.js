@@ -21,11 +21,16 @@ const updateStore = async (storeId, updateData) => {
 const deleteStore = async (storeId) => {
     return await Store.findByIdAndDelete(storeId);
 };
+const getStoresByOwnerId = async (ownerId) => {
+    return await Store.find({ owner: ownerId });
+};
+
 
 module.exports = {
     createStore,
     getStoreById,
     getAllStores,
     updateStore,
-    deleteStore
+    deleteStore,
+    getStoresByOwnerId
 };

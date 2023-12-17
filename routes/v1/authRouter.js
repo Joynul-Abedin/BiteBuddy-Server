@@ -19,5 +19,7 @@ router.get('/stores/:storeId', storeController.getStoreById);
 router.get('/stores', storeController.getAllStores);
 router.put('/stores/:storeId', storeController.updateStore);
 router.delete('/stores/:storeId', storeController.deleteStore);
+router.get('/stores/owner/:ownerId', storeController.getStoresByOwnerId);
+
 
 module.exports = router;
