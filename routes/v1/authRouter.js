@@ -7,6 +7,10 @@ const foodItemController = require('../../controllers/foodItemController');
 const storeController = require('./../../controllers/storeController');
 const checkAccess = require('../../services/checkAccess');
 const userTypeController = require('../../controllers/userTypeController');
+const userController = require('../../controllers/userController');
+
+// User Routes
+router.get('/users/:email', userController.getUserByEmail);
 
 // Food Item Routes
 router.post('/food-item', foodItemController.createFoodItem);
