@@ -2,9 +2,12 @@ const express = require('express');
 const connectDB = require('./DataBase/DB'); // Import the database connection
 const bodyParser = require('body-parser');
 const authRouter = require('./index');
+const userTypeInitialization = require('./services/userTypeInitialization');
 
 const app = express();
-connectDB();
+connectDB().then(async () => {
+  await userTypeInitialization();
+});
 
 // app.use(bodyParser.json());
 // app.use(bodyParser.urlencoded({ extended: true }));
