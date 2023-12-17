@@ -5,9 +5,14 @@ const createStore = async (req, res) => {
         const store = await storeService.createStore(req.body);
         res.status(201).json(store);
     } catch (error) {
-        res.status(400).json({ error: error.message });
+        // Handle the specific error for duplicate store creation
+        if (error.message.includes('store with this name already exists')) {
+            return res.status(400).json({ error: error.message });
+        }
+        res.status(500).json({ error: error.message });
     }
 };
+
 
 const getStoreById = async (req, res) => {
     try {
