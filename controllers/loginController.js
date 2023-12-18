@@ -24,10 +24,8 @@ async function loginUser(req, res) {
     const token = jwt.sign(
       {
         userId: user._id,
-        name: user.name,
         email: user.email,
         role: user.role,
-        hasStore: user.hasStore
       },
       process.env.ACCESS_TOKEN_SECRET, // Your secret key for signing the token
       { expiresIn: '1h' } // Token expiration time (adjust as needed)
@@ -40,6 +38,7 @@ async function loginUser(req, res) {
         name: user.name,
         email: user.email,
         role: user.role,
+        hasStore: user.hasStore
       },
     });
   }
