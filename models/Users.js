@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const { userTypes } = require('../models/userEnums');
 
 const userSchema = new mongoose.Schema({
     name: {
@@ -17,8 +16,7 @@ const userSchema = new mongoose.Schema({
     },
     role: {
         type: String,
-        enum: userTypes,
-        default: 'user',
+        default: 'customer',
         required: true
     },
     hasStore:{

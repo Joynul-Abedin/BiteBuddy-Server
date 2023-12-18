@@ -1,5 +1,4 @@
 const { validationResult, body } = require('express-validator');
-const { userRoles } = require('../models/userEnums');
 const userService = require('../services/userService');
 
 const signupDataValidationController = [
@@ -24,10 +23,6 @@ const signupDataValidationController = [
   body('password')
     .isLength({ min: 6 })
     .withMessage('Password must be at least 6 characters'),
-
-  body('role')
-    .isIn(userRoles)
-    .withMessage('Invalid user type'),
  
   (req, res, next) => {
     console.log('signupDataValidationController.js', req.body);

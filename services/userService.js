@@ -1,8 +1,7 @@
 const User = require('../models/Users');
 const bcrypt = require('bcrypt');
-const { userRoles } = require('../models/userEnums');
 
-async function createUser(name, email, password, role = userRoles[0]) {
+async function createUser(name, email, password, role) {
   try {
     const existingUser = await User.findOne({ email });
 
