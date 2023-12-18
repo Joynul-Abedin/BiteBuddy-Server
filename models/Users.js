@@ -21,6 +21,9 @@ const userSchema = new mongoose.Schema({
         default: 'user',
         required: true
     },
+    hasStore:{
+        type: Boolean,
+    },
     emailVerificationToken: {
         type: String
     },

@@ -1,11 +1,16 @@
 const storeService = require('../services/storeService');
+const User = require('../models/Users');
 
 const createStore = async (req, res) => {
     try {
         const store = await storeService.createStore(req.body);
+
+        // Assuming the user's ID is stored in req.user.id
+        const userId = req.user.id;
+        await User.findByIdAndUpdate(userId, { hasStore: true });
+
         res.status(201).json(store);
     } catch (error) {
-        // Handle the specific error for duplicate store creation
         if (error.message.includes('store with this name already exists')) {
             return res.status(400).json({ error: error.message });
         }
