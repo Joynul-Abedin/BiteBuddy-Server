@@ -6,8 +6,10 @@ const createStore = async (req, res) => {
         const store = await storeService.createStore(req.body);
 
         // Assuming the user's ID is stored in req.user.id
-        const userId = req.user.id;
-        await User.findByIdAndUpdate(userId, { hasStore: true });
+        const userId = req.body.owner;
+        const updatedUser = await User.findByIdAndUpdate(userId, { hasStore: true }, { new: true });
+        console.log("Updated user:", updatedUser);
+
 
         res.status(201).json(store);
     } catch (error) {

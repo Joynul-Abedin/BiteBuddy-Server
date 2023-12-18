@@ -19,8 +19,10 @@ const userSchema = new mongoose.Schema({
         default: 'customer',
         required: true
     },
-    hasStore:{
+    // User model
+    hasStore: {
         type: Boolean,
+        default: false
     },
     emailVerificationToken: {
         type: String
@@ -30,9 +32,9 @@ const userSchema = new mongoose.Schema({
         default: false
     },
 },
-{
-    timestamps: true
-});
+    {
+        timestamps: true
+    });
 
 module.exports = mongoose.model("Users", userSchema);
-    
+
