@@ -8,9 +8,7 @@ const app = express();
 connectDB().then(async () => {
   await userTypeInitialization();
 });
-
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
 
 app.use(express.json());
 app.use('/api', authRouter);
