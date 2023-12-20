@@ -38,6 +38,7 @@ async function loginUser(req, res) {
         name: user.name,
         email: user.email,
         role: user.role,
+        hasStore: user.hasStore
       },
     });
   }

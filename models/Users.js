@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const { userTypes } = require('../models/userEnums');
 
 const userSchema = new mongoose.Schema({
     name: {
@@ -17,9 +16,13 @@ const userSchema = new mongoose.Schema({
     },
     role: {
         type: String,
-        enum: userTypes,
-        default: 'user',
+        default: 'customer',
         required: true
+    },
+    // User model
+    hasStore: {
+        type: Boolean,
+        default: false
     },
     emailVerificationToken: {
         type: String
@@ -29,9 +32,9 @@ const userSchema = new mongoose.Schema({
         default: false
     },
 },
-{
-    timestamps: true
-});
+    {
+        timestamps: true
+    });
 
 module.exports = mongoose.model("Users", userSchema);
-    
+

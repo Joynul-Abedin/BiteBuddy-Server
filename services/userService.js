@@ -1,8 +1,7 @@
 const User = require('../models/Users');
 const bcrypt = require('bcrypt');
-const { userRoles } = require('../models/userEnums');
 
-async function createUser(name, email, password, role = userRoles[0]) {
+async function createUser(name, email, password, role) {
   try {
     const existingUser = await User.findOne({ email });
 
@@ -36,7 +35,21 @@ async function getUserByEmail(email) {
   }
 }
 
+async function getUserById(id) {
+  try {
+    console.log("ID to be used for getUserById: ", id);
+    const user = await User.findById(id);
+    console.log("User-", user);
+
+    return user;
+  } catch (error) {
+    throw error;
+  }
+}
+
+
 module.exports = {
   createUser,
   getUserByEmail,
+  getUserById
 };
