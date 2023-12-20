@@ -19,10 +19,12 @@ router.put('/food-item/:id', foodItemController.updateFoodItem);
 router.delete('/food-item/:id', foodItemController.deleteFoodItem);
 
 console.log('UserAuthentication/routes/v1/authRouter.js');
+
 // Authentication Routes
 router.post('/signup', signupDataValidationController, signupController.signup);
 router.post('/login', loginController.loginUser);
 router.get('/verify-email', emailVerificationController.verifyEmail);
+
 // Store Routes
 router.post('/stores', checkAccess('createOwn', 'store'), storeController.createStore);
 router.get('/stores/:storeId', storeController.getStoreById);

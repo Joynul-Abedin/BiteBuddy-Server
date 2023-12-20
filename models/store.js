@@ -39,13 +39,17 @@ const storeSchema = new mongoose.Schema({
     description: String,
     categories: [String], // e.g., ['Italian', 'Bakery']
     menu: [{
-        type: mongoose.Schema.Types.ObjectId,
+        type: [String],
         ref: 'FoodItem'
     }],
     hours: {
         monday: { open: String, close: String },
         tuesday: { open: String, close: String },
-        // Repeat for other days of the week
+        wednesday: { open: String, close: String },
+        thursday: { open: String, close: String },
+        friday: { open: String, close: String },
+        saturday: { open: String, close: String },
+        sunday: { open: String, close: String }
     },
     ratings: [{
         rating: Number,
