@@ -9,6 +9,11 @@ const checkAccess = require('../../services/checkAccess');
 const userTypeController = require('../../controllers/userTypeController');
 const userController = require('../../controllers/userController');
 
+// Endpoint to check if the API is running
+router.get('/ping', (req, res) => {
+    res.status(200).send('API is running');
+});
+
 // User Routes
 router.get('/users/:email', userController.getUserByEmail);
 
