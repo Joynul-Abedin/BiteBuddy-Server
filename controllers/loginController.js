@@ -27,8 +27,8 @@ async function loginUser(req, res) {
         email: user.email,
         role: user.role,
       },
-      process.env.ACCESS_TOKEN_SECRET, // Your secret key for signing the token
-      { expiresIn: '1h' } // Token expiration time (adjust as needed)
+      process.env.ACCESS_TOKEN_SECRET,
+      { expiresIn: '6h' } 
     );
 
     res.status(200).json({
